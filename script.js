@@ -27,12 +27,17 @@ function calcularMedia() {
         let soma = 0;
         let container = document.querySelector(`.N${i+1}-inputs`);
         let inputs = container.querySelectorAll(`.N${i+1}-input`);
+        let numeroDeNotas = inputs.length;
         
         inputs.forEach(input => {
-            soma += Number(input.value);
+            if (Number(input.value) === 0 || isNaN(Number(input.value))) {
+                numeroDeNotas --;
+            } else {
+                soma += Number(input.value);
+            }
         })
 
-        let media = soma / inputs.length;
+        let media = numeroDeNotas > 0 ? soma / numeroDeNotas : 0
 
         medias[i] = media;
     }
