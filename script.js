@@ -30,7 +30,7 @@ function calcularMedia() {
         let numeroDeNotas = inputs.length;
         
         inputs.forEach(input => {
-            if (Number(input.value) === 0 || isNaN(Number(input.value))) {
+            if (isNaN(Number(input.value))) {
                 numeroDeNotas --;
             } else {
                 soma += Number(input.value);
