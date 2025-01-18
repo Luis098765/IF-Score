@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(23, 23, 185);
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px;
+    font-size: 40px;
+}
+
+.container {
+    background-color: #092636;
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 300px;
+    width: max-content;
+    margin: auto;
+}
+
+fieldset {
+    background-color: #092636;
+    border: solid 3px #218eff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+fieldset legend {
+    margin: auto;
+    background: #218eff;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.box {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 8px;
+}
+
+input {
+    width: 45px;
+    height: 25px;
+    font-size: 20px;
+    text-align: center;
+    border: none;
+    outline: 0;
+    color: white;
+    background-color: rgb(23, 23, 131);
+}
+
+.add {
+    font-size: 25px;
+    text-align: center;
+    width: 28px;
+    height: 28px;
+    padding: 0px;
+    border-radius: 8px;
+    background-color: rgb(23, 23, 131);
+}

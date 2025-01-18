@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>IF Score</title>
+
+        <link rel="stylesheet" href="style2.css">
+    </head>
+
+    <body>
+        <h1>IF Score</h1>
+
+        <div class="container">
+            <fieldset>
+                <legend>Calcule sua média aqui</legend>
+                <div class="box">
+                    <p>N1:</p>
+                    <div class="N1-inputs" style="gap: 5px; display: flex;">
+                        <input class="N1-input" oninput="calcularMedia()">
+                    </div>
+                    <div class="add" onclick="addSpace(1)">+</div>
+                    <div class="remove" onclick="removeSpace(1)">-</div>
+                </div>
+                <div class="box">
+                    <p>N2:</p>
+                    <div class="N2-inputs" style="gap: 5px; display: flex;">
+                        <input class="N2-input" oninput="calcularMedia()">
+                    </div>
+                    <div class="add" onclick="addSpace(2)">+</div>
+                    <div class="remove" onclick="removeSpace(2)">-</div>
+                </div>
+                <div class="box">
+                    <p>N3:</p>
+                    <div class="N3-inputs" style="gap: 5px; display: flex;">
+                        <input class="N3-input" oninput="calcularMedia()">
+                    </div>
+                    <div class="add" onclick="addSpace(3)">+</div>
+                    <div class="remove" onclick="removeSpace(3)">-</div>
+                </div>
+                <div class="box">
+                    <p>N4:</p>
+                    <div class="N4-inputs" style="gap: 5px; display: flex;">
+                        <input class="N4-input" oninput="calcularMedia()">
+                    </div>
+                    <div class="add" onclick="addSpace(4)">+</div>
+                    <div class="remove" onclick="removeSpace(4)">-</div>
+                </div>
+                <div id="result">Média final: 0 <br> Status: devendo nota</div>
+            </fieldset>
+        </div>
+
+        <br>
+
+        <div class="container" style="max-width: 420px;">
+            Este é um site simples onde você poderá calcular sua média final a partir das suas notas em cada etapa. <br>
+            Você não precisará de calculadora, apenas inserir suas notas referentes a cada etapa como mostrado acima. <br>
+            Manual de uso: <br>
+            1. Se o professor(a) atribuir apenas uma nota como média final da etapa, digite apenas ela. <br>
+                Exemplo: a sua média da etapa é apenas uma nota, ou apenas a soma de duas ou mais notas.<br>
+            2. Não use vírgulas para números quebrados, apenas pontos. <br>
+            3. Para saber quanto você precisa para passar, basta adicionar notas na etapa desejada até sua média atingir 6.<br>
+            4. Para dúvidas e sugestões, fale com Luís Fernando.
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
