@@ -2,22 +2,39 @@ function addSpace(step) {
     let input = document.createElement("input");
     input.classList.add(`N${step}-input`)
     input.setAttribute('oninput', 'calcularMedia()')
+    input.setAttribute('placeholder', '0.0')
 
     let container = document.querySelector(`.N${step}-inputs`);
 
+    input.style.opacity = "0";
+    input.style.transform = "scale(0.8)";
+    input.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+
     container.appendChild(input)
+
+    setTimeout(() => {
+        input.style.opacity = "1";
+        input.style.transform = "scale(1)";
+    }, 10);
+
+    calcularMedia()
 }
 
 function removeSpace(step) {
     let container = document.querySelector(`.N${step}-inputs`);
-
     let inputs = container.querySelectorAll(`.N${step}-input`);
+
     if (inputs.length > 1) { 
         let lastInput = inputs[inputs.length - 1];
-        container.removeChild(lastInput);
-    }
 
-    calcularMedia()
+        lastInput.style.opacity = "0";
+        lastInput.style.transform = "scale(0.8)";
+        
+        setTimeout(() => {
+            lastInput.remove();
+            calcularMedia();
+        }, 140);
+    }
 }
 
 function calcularMedia() {
@@ -30,10 +47,10 @@ function calcularMedia() {
         let numeroDeNotas = inputs.length;
         
         inputs.forEach(input => {
-            if (isNaN(Number(input.value))) {
+            if (isNaN(Number(input.value.replace(',', '.')))) {
                 numeroDeNotas --;
             } else {
-                soma += Number(input.value);
+                soma += Number(input.value.replace(',', '.'));
             }
         })
 
@@ -47,10 +64,12 @@ function calcularMedia() {
     let msg
 
     if (mediaFinal >= 6) {
-        msg = "aprovado por média"
+        msg = `<span style="color: green">aprovado por média</span>`
     } else {
-        msg = "devendo nota"
+        msg = `<span style="color: red">devendo nota</span>`
     }
 
     document.getElementById("result").innerHTML = `Média final: ${mediaFinal} <br> Status: ${msg}`
 }
+
+calcularMedia()
