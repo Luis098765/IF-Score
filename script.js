@@ -3,6 +3,7 @@ function addSpace(step) {
     input.classList.add(`N${step}-input`)
     input.setAttribute('oninput', 'calcularMedia()')
     input.setAttribute('placeholder', '0.0')
+    input.setAttribute('type', 'number')
 
     let container = document.querySelector(`.N${step}-inputs`);
 
