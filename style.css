@@ -66,7 +66,7 @@ input {
     height: 25px;
     padding: 0px;
     border-radius: 8px;
-    background-color: saddlebrown;
+    background-color: #6c3c0c;
     cursor: pointer;
     color: antiquewhite;
 }
@@ -79,7 +79,7 @@ input {
     height: 25px;
     padding: 0px;
     border-radius: 8px;
-    background-color: saddlebrown;
+    background-color: #6c3c0c;
     cursor: pointer;
     color: antiquewhite;
 }
@@ -113,7 +113,7 @@ input[type=number] {
 
 .button {
     background-color: antiquewhite;
-    border: 2px solid saddlebrown;
+    border: 2px solid #6c3c0c;
     border-radius: 8px;
     padding: 10px;
     width: 120px;
@@ -121,7 +121,7 @@ input[type=number] {
 }
 
 .button.selected {
-    background-color: saddlebrown;
+    background-color: #6c3c0c;
     color: antiquewhite;
     scale: 1.025;
 }
