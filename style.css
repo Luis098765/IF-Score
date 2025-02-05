@@ -66,8 +66,9 @@ input {
     height: 25px;
     padding: 0px;
     border-radius: 8px;
-    background-color: rgb(224, 222, 145);
+    background-color: saddlebrown;
     cursor: pointer;
+    color: antiquewhite;
 }
 
 .remove {
@@ -78,8 +79,9 @@ input {
     height: 25px;
     padding: 0px;
     border-radius: 8px;
-    background-color: rgb(224, 222, 145);
+    background-color: saddlebrown;
     cursor: pointer;
+    color: antiquewhite;
 }
 
 p {
@@ -101,4 +103,29 @@ input[type=number]::-webkit-outer-spin-button {
 
 input[type=number] {
     -moz-appearance: textfield;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.button {
+    background-color: antiquewhite;
+    border: 2px solid saddlebrown;
+    border-radius: 8px;
+    padding: 10px;
+    width: 120px;
+    transition: 0.25s;
+}
+
+.button.selected {
+    background-color: saddlebrown;
+    color: antiquewhite;
+    scale: 1.025;
+}
+
+.button.unselected {
+    scale: 0.925;
 }

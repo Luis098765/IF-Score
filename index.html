@@ -53,18 +53,28 @@
 
         <br>
 
+        <div class="container" style="text-align: center;">
+            Selecione o nível do seu curso:
+            <div class="buttons">
+                <div class="button" onclick="select(0)">Médio Técnico</div>
+                <div class="button" onclick="select(1)">Superior</div>
+            </div>
+        </div>
+
+        <br>
+
         <div class="container" style="max-width: 300px;">
             Este é um site simples onde você poderá calcular sua média final a partir das suas notas em cada etapa. <br>
             Você não precisará de calculadora, apenas inserir suas notas referentes a cada etapa como mostrado acima. <br>
             Manual de uso: <br>
             <div style="display: flex; flex-direction: column; gap: 5px; margin-bottom: 5px;">
-                <div style="display: flex; align-items: center; gap: 5px;"><div class="add">+</div>> Adicionar campo de nota</div>
+                <div style="display: flex; align-items: center; gap: 5px; margin-top: 5px;"><div class="add">+</div>> Adicionar campo de nota</div>
                 <div style="display: flex; align-items: center; gap: 5px;"><div class="remove">-</div>> Remover campo de nota</div>
             </div>
             1. Se o professor(a) atribuir apenas uma nota como média final da etapa, digite apenas ela; <br>
                 > Exemplo: se a sua média da etapa é apenas uma nota, a maior de duas notas ou a soma de duas ou mais notas;<br>
             2. Para saber quanto você precisa para passar, basta adicionar notas na etapa desejada até sua média atingir 6;<br>
-            3. Cuidado: ao adicionar um novo campo, sua média será calculada como se aquela nota fosse 0, <b>evite adicionar campos desnecessários.</b> <br> <br>
+            3. Cuidado: ao adicionar um novo campo, sua média será calculada como se aquela nota fosse 0, <b>evite adicionar campos desnecessários</b>. <br> <br>
             <div style="text-align: center;">Luís Fernando (2º Ano de Redes)</div>
         </div>
 

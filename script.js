@@ -1,3 +1,6 @@
+const buttons = document.querySelectorAll(".button")
+var min_media = 0
+
 function addSpace(step) {
     let input = document.createElement("input");
     input.classList.add(`N${step}-input`)
@@ -38,16 +41,41 @@ function removeSpace(step) {
     }
 }
 
-function calcularMedia() {
-    let medias = [];
+function select(position) {
+    if (position == 0) {
+        buttons[0].classList.remove("unselected")
+        buttons[0].classList.add("selected")
 
-    for (let i=0; i<4; i++) {
-        let soma = 0;
-        let container = document.querySelector(`.N${i+1}-inputs`);
-        let inputs = container.querySelectorAll(`.N${i+1}-input`);
-        let numeroDeNotas = inputs.length;
+        buttons[1].classList.remove("selected")
+        buttons[1].classList.add("unselected")
+
+        min_media = 6
+    } else {
+        buttons[1].classList.remove("unselected")
+        buttons[1].classList.add("selected")
         
-        inputs.forEach(input => {
+        buttons[0].classList.remove("selected")
+        buttons[0].classList.add("unselected")
+
+        min_media = 7
+    }
+
+    calcularMedia()
+}
+
+function calcularMedia() {
+    if (min_media == 0) {
+        document.getElementById("result").innerHTML = "Primeiro, selecione o nível do curso"
+    } else {
+        let medias = [];
+
+        for (let i=0; i<4; i++) {
+            let soma = 0;
+            let container = document.querySelector(`.N${i+1}-inputs`);
+            let inputs = container.querySelectorAll(`.N${i+1}-input`);
+            let numeroDeNotas = inputs.length;
+        
+            inputs.forEach(input => {
             if (isNaN(Number(input.value.replace(',', '.')))) {
                 numeroDeNotas --;
             } else {
@@ -60,17 +88,19 @@ function calcularMedia() {
         medias[i] = media;
     }
 
-    let mediaFinal = ((medias[0]) + (medias[1]*2) + (medias[2]*3) + (medias[3]*4)) / 10;
+        let mediaFinal = ((medias[0]) + (medias[1]*2) + (medias[2]*3) + (medias[3]*4)) / 10;
 
-    let msg
+        let msg
 
-    if (mediaFinal >= 6) {
-        msg = `<span style="color: green">aprovado por média</span>`
-    } else {
-        msg = `<span style="color: red">devendo nota</span>`
+        if (mediaFinal >= min_media) {
+            msg = `<span style="color: green">aprovado por média</span>`
+        } else {
+            msg = `<span style="color: red">devendo nota</span>`
+        }
+
+        document.getElementById("result").innerHTML = `Média final: ${mediaFinal} <br> Status: ${msg}`
     }
 
-    document.getElementById("result").innerHTML = `Média final: ${mediaFinal} <br> Status: ${msg}`
-}
+    }
 
 calcularMedia()
