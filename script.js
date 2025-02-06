@@ -49,6 +49,9 @@ function select(position) {
         buttons[1].classList.remove("selected")
         buttons[1].classList.add("unselected")
 
+        document.getElementById("superior").style.display = "none"
+        document.getElementById("medio").style.display = "block"
+
         min_media = 6
     } else {
         buttons[1].classList.remove("unselected")
@@ -56,6 +59,9 @@ function select(position) {
         
         buttons[0].classList.remove("selected")
         buttons[0].classList.add("unselected")
+
+        document.getElementById("medio").style.display = "none"
+        document.getElementById("superior").style.display = "block"
 
         min_media = 7
     }
@@ -69,41 +75,57 @@ function calcularMedia() {
     } else {
         let medias = [];
         let notaAF = 0;
+        let mediaFinal = 0;
 
-        for (let i=0; i<4; i++) {
-            let soma = 0;
-            let container = document.querySelector(`.N${i+1}-inputs`);
-            let inputs = container.querySelectorAll(`.N${i+1}-input`);
-            let numeroDeNotas = inputs.length;
-        
-            inputs.forEach(input => {
-                if (isNaN(Number(input.value.replace(',', '.')))) {
-                    numeroDeNotas --;
-                } else {
-                    soma += Number(input.value.replace(',', '.'));
-                }
-            })
+        if (min_media == 6) {
+            for (let i=0; i<4; i++) {
+                let soma = 0;
+                let container = document.querySelector(`#medio .N${i+1}-inputs`);
+                let inputs = container.querySelectorAll(`#medio .N${i+1}-input`);
+                let numeroDeNotas = inputs.length;
+            
+                inputs.forEach(input => {
+                    if (isNaN(Number(input.value.replace(',', '.')))) {
+                        numeroDeNotas --;
+                    } else {
+                        soma += Number(input.value.replace(',', '.'));
+                    }
+                })
+    
+                let media = numeroDeNotas > 0 ? soma / numeroDeNotas : 0
+    
+                medias[i] = media;
+            }
 
-            let media = numeroDeNotas > 0 ? soma / numeroDeNotas : 0
+            mediaFinal = ((medias[0]) + (medias[1]*2) + (medias[2]*3) + (medias[3]*4)) / 10;
+        } else if (min_media == 7) {
+            for (let i=0; i<2; i++) {
+                let soma = 0;
+                let container = document.querySelector(`#superior .N${i+1}-inputs`);
+                let inputs = container.querySelectorAll(`#superior .N${i+1}-input`);
+                let numeroDeNotas = inputs.length;
+            
+                inputs.forEach(input => {
+                    if (isNaN(Number(input.value.replace(',', '.')))) {
+                        numeroDeNotas --;
+                    } else {
+                        soma += Number(input.value.replace(',', '.'));
+                    }
+                })
+    
+                let media = numeroDeNotas > 0 ? soma / numeroDeNotas : 0
+    
+                medias[i] = media;
+            }
 
-            medias[i] = media;
+            mediaFinal = ((medias[0]*2) + (medias[1]*3)) / 5;
         }
-
-        let mediaFinal = ((medias[0]) + (medias[1]*2) + (medias[2]*3) + (medias[3]*4)) / 10;
 
         let msg
 
         if (mediaFinal >= min_media) {
             msg = `<span style="color: green">aprovado por média</span>`
         } else if (mediaFinal >= 3) {
-            let mf = 0
-
-           // while (mf < 5) {
-            //    notaAF += 0.1
-
-             //   mf = (mediaFinal + notaAF) / 2
-            //}
-
             notaAF = 2 * 5 - mediaFinal
 
             msg = `<span style="color: red">devendo nota</span> <br> Nota mínima na AF para passar: ${notaAF.toFixed(2)}`
@@ -111,7 +133,10 @@ function calcularMedia() {
             msg = `<span style="color: red"><b>reprovado</b></span> <br> Você não pode fazer a AF.`
         }
 
-        document.getElementById("result").innerHTML = `Média final: ${mediaFinal.toFixed(2)} <br> Status: ${msg}`
+        let result = document.getElementsByClassName("result")
+
+        result[0].innerHTML = `Média final: ${mediaFinal.toFixed(2)} <br> Status: ${msg}`
+        result[1].innerHTML = `Média final: ${mediaFinal.toFixed(2)} <br> Status: ${msg}`
     }
 
 }

@@ -23,6 +23,8 @@ h1 {
     width: max-content;
     margin: auto;
     box-shadow: 0px 0px 10px gray;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 fieldset {
@@ -92,7 +94,7 @@ p {
     font-size: 23px;
 }
 
-#result {
+.result {
     text-align: center;
     background-color: antiquewhite;
     border-radius: 8px;
