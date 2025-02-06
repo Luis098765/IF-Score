@@ -8,7 +8,15 @@ function addSpace(step) {
     input.setAttribute('placeholder', '0.0')
     input.setAttribute('type', 'number')
 
-    let container = document.querySelector(`.N${step}-inputs`);
+    var container 
+
+    if (min_media == 6) {
+        container = document.querySelector(`#medio .N${step}-inputs`);
+    } else if (min_media == 7) {
+        container = document.querySelector(`#superior .N${step}-inputs`);
+    }
+
+    
 
     input.style.opacity = "0";
     input.style.transform = "scale(0.8)";
@@ -25,7 +33,14 @@ function addSpace(step) {
 }
 
 function removeSpace(step) {
-    let container = document.querySelector(`.N${step}-inputs`);
+    var container 
+
+    if (min_media == 6) {
+        container = document.querySelector(`#medio .N${step}-inputs`);
+    } else if (min_media == 7) {
+        container = document.querySelector(`#superior .N${step}-inputs`);
+    }
+    
     let inputs = container.querySelectorAll(`.N${step}-input`);
 
     if (inputs.length > 1) { 
