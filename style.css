@@ -120,6 +120,10 @@ input[type=number] {
     transition: 0.25s;
 }
 
+.button:hover {
+    cursor: pointer;
+}
+
 .button.selected {
     background-color: #6c3c0c;
     color: antiquewhite;
