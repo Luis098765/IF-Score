@@ -65,7 +65,7 @@ function select(position) {
 
 function calcularMedia() {
     if (min_media == 0) {
-        document.getElementById("result").innerHTML = "Primeiro, selecione o nível do curso"
+        document.getElementById("result").innerHTML = "Primeiramente, <br> selecione o nível do curso"
     } else {
         let medias = [];
 
