@@ -65,9 +65,10 @@ function select(position) {
 
 function calcularMedia() {
     if (min_media == 0) {
-        document.getElementById("result").innerHTML = "Primeiramente, <br> selecione o nível do curso"
+        document.getElementById("result").innerHTML = "Primeiramente, <br> selecione o nível do curso. <br> Em caso de dúvidas, leia o manual."
     } else {
         let medias = [];
+        let notaAF = 0;
 
         for (let i=0; i<4; i++) {
             let soma = 0;
@@ -76,17 +77,17 @@ function calcularMedia() {
             let numeroDeNotas = inputs.length;
         
             inputs.forEach(input => {
-            if (isNaN(Number(input.value.replace(',', '.')))) {
-                numeroDeNotas --;
-            } else {
-                soma += Number(input.value.replace(',', '.'));
-            }
-        })
+                if (isNaN(Number(input.value.replace(',', '.')))) {
+                    numeroDeNotas --;
+                } else {
+                    soma += Number(input.value.replace(',', '.'));
+                }
+            })
 
-        let media = numeroDeNotas > 0 ? soma / numeroDeNotas : 0
+            let media = numeroDeNotas > 0 ? soma / numeroDeNotas : 0
 
-        medias[i] = media;
-    }
+            medias[i] = media;
+        }
 
         let mediaFinal = ((medias[0]) + (medias[1]*2) + (medias[2]*3) + (medias[3]*4)) / 10;
 
@@ -94,13 +95,25 @@ function calcularMedia() {
 
         if (mediaFinal >= min_media) {
             msg = `<span style="color: green">aprovado por média</span>`
+        } else if (mediaFinal >= 3) {
+            let mf = 0
+
+           // while (mf < 5) {
+            //    notaAF += 0.1
+
+             //   mf = (mediaFinal + notaAF) / 2
+            //}
+
+            notaAF = 2 * 5 - mediaFinal
+
+            msg = `<span style="color: red">devendo nota</span> <br> Nota mínima na AF para passar: ${notaAF.toFixed(2)}`
         } else {
-            msg = `<span style="color: red">devendo nota</span>`
+            msg = `<span style="color: red"><b>reprovado</b></span> <br> Você não pode fazer a AF.`
         }
 
-        document.getElementById("result").innerHTML = `Média final: ${mediaFinal} <br> Status: ${msg}`
+        document.getElementById("result").innerHTML = `Média final: ${mediaFinal.toFixed(2)} <br> Status: ${msg}`
     }
 
-    }
+}
 
 calcularMedia()
