@@ -1,5 +1,6 @@
 const buttons = document.querySelectorAll(".button")
 var min_media = 0
+var manualExibido = false
 
 function addSpace(step) {
     let input = document.createElement("input");
@@ -15,8 +16,6 @@ function addSpace(step) {
     } else if (min_media == 7) {
         container = document.querySelector(`#superior .N${step}-inputs`);
     }
-
-    
 
     input.style.opacity = "0";
     input.style.transform = "scale(0.8)";
@@ -40,7 +39,7 @@ function removeSpace(step) {
     } else if (min_media == 7) {
         container = document.querySelector(`#superior .N${step}-inputs`);
     }
-    
+
     let inputs = container.querySelectorAll(`.N${step}-input`);
 
     if (inputs.length > 1) { 
@@ -153,7 +152,18 @@ function calcularMedia() {
         result[0].innerHTML = `Média final: ${mediaFinal.toFixed(2)} <br> Status: ${msg}`
         result[1].innerHTML = `Média final: ${mediaFinal.toFixed(2)} <br> Status: ${msg}`
     }
+}
 
+function exibirEsconderManual() {
+    if (!manualExibido) {
+        document.getElementById("manual").style.display = "block"
+        document.getElementById("exibir").innerText = "Esconder manual"
+    } else {
+        document.getElementById("manual").style.display = "none"
+        document.getElementById("exibir").innerText = "Exibir manual"
+    }
+
+    manualExibido = !manualExibido
 }
 
 calcularMedia()

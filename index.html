@@ -1,112 +1,138 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>IF Score</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <script>
-            window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-        </script>
-        <script defer src="/_vercel/insights/script.js"></script>
+    <title>IF Score</title>
 
-        <link rel="stylesheet" href="style.css">
-    </head>
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 
-    <body>
-        <h1>IF Score</h1>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-        <div class="container" style="text-align: center;">
-            Selecione o nível do seu curso:
-            <div class="buttons">
-                <div class="button" onclick="select(0)">Médio Técnico</div>
-                <div class="button" onclick="select(1)">Superior</div>
+<body>
+    <h1>IF Score</h1>
+
+    <div class="container" style="text-align: center;">
+        Selecione o nível do seu curso:
+        <div class="buttons">
+            <div class="button" onclick="select(0)">Médio Técnico</div>
+            <div class="button" onclick="select(1)">Superior</div>
+        </div>
+    </div>
+
+    <div class="container" id="medio" style="display: none;">
+        <fieldset>
+            <legend>Calcule sua média aqui</legend>
+            <div class="box">
+                <p>N1:</p>
+                <div class="N1-inputs" style="gap: 5px; display: flex;">
+                    <input class="N1-input" oninput="calcularMedia()" placeholder="0.0" type="number">
+                </div>
+                <div class="add" onclick="addSpace(1)">+</div>
+                <div class="remove" onclick="removeSpace(1)">-</div>
             </div>
-        </div>
+            <div class="box">
+                <p>N2:</p>
+                <div class="N2-inputs" style="gap: 5px; display: flex;">
+                    <input class="N2-input" oninput="calcularMedia()" placeholder="0.0" type="number">
+                </div>
+                <div class="add" onclick="addSpace(2)">+</div>
+                <div class="remove" onclick="removeSpace(2)">-</div>
+            </div>
+            <div class="box">
+                <p>N3:</p>
+                <div class="N3-inputs" style="gap: 5px; display: flex;">
+                    <input class="N3-input" oninput="calcularMedia()" placeholder="0.0" type="number">
+                </div>
+                <div class="add" onclick="addSpace(3)">+</div>
+                <div class="remove" onclick="removeSpace(3)">-</div>
+            </div>
+            <div class="box">
+                <p>N4:</p>
+                <div class="N4-inputs" style="gap: 5px; display: flex;">
+                    <input class="N4-input" oninput="calcularMedia()" placeholder="0.0" type="number">
+                </div>
+                <div class="add" onclick="addSpace(4)">+</div>
+                <div class="remove" onclick="removeSpace(4)">-</div>
+            </div>
+            <div class="result"></div>
+        </fieldset>
+    </div>
 
-        <div class="container" id="medio" style="display: none;">
-            <fieldset>
-                <legend>Calcule sua média aqui</legend>
-                <div class="box">
-                    <p>N1:</p>
-                    <div class="N1-inputs" style="gap: 5px; display: flex;">
-                        <input class="N1-input" oninput="calcularMedia()" placeholder="0.0" type="number">
-                    </div>
-                    <div class="add" onclick="addSpace(1)">+</div>
-                    <div class="remove" onclick="removeSpace(1)">-</div>
+    <div class="container" id="superior" style="display: none;">
+        <fieldset>
+            <legend>Calcule sua média aqui</legend>
+            <div class="box">
+                <p>N1:</p>
+                <div class="N1-inputs" style="gap: 5px; display: flex;">
+                    <input class="N1-input" oninput="calcularMedia()" placeholder="0.0" type="number">
                 </div>
-                <div class="box">
-                    <p>N2:</p>
-                    <div class="N2-inputs" style="gap: 5px; display: flex;">
-                        <input class="N2-input" oninput="calcularMedia()" placeholder="0.0" type="number">
-                    </div>
-                    <div class="add" onclick="addSpace(2)">+</div>
-                    <div class="remove" onclick="removeSpace(2)">-</div>
+                <div class="add" onclick="addSpace(1)">+</div>
+                <div class="remove" onclick="removeSpace(1)">-</div>
+            </div>
+            <div class="box">
+                <p>N2:</p>
+                <div class="N2-inputs" style="gap: 5px; display: flex;">
+                    <input class="N2-input" oninput="calcularMedia()" placeholder="0.0" type="number">
                 </div>
-                <div class="box">
-                    <p>N3:</p>
-                    <div class="N3-inputs" style="gap: 5px; display: flex;">
-                        <input class="N3-input" oninput="calcularMedia()" placeholder="0.0" type="number">
-                    </div>
-                    <div class="add" onclick="addSpace(3)">+</div>
-                    <div class="remove" onclick="removeSpace(3)">-</div>
-                </div>
-                <div class="box">
-                    <p>N4:</p>
-                    <div class="N4-inputs" style="gap: 5px; display: flex;">
-                        <input class="N4-input" oninput="calcularMedia()" placeholder="0.0" type="number">
-                    </div>
-                    <div class="add" onclick="addSpace(4)">+</div>
-                    <div class="remove" onclick="removeSpace(4)">-</div>
-                </div>
-                <div class="result"></div>
-            </fieldset>
-        </div>
+                <div class="add" onclick="addSpace(2)">+</div>
+                <div class="remove" onclick="removeSpace(2)">-</div>
+            </div>
+            <div class="result"></div>
+        </fieldset>
+    </div>
 
-        <div class="container" id="superior" style="display: none;">
-            <fieldset>
-                <legend>Calcule sua média aqui</legend>
-                <div class="box">
-                    <p>N1:</p>
-                    <div class="N1-inputs" style="gap: 5px; display: flex;">
-                        <input class="N1-input" oninput="calcularMedia()" placeholder="0.0" type="number">
-                    </div>
-                    <div class="add" onclick="addSpace(1)">+</div>
-                    <div class="remove" onclick="removeSpace(1)">-</div>
-                </div>
-                <div class="box">
-                    <p>N2:</p>
-                    <div class="N2-inputs" style="gap: 5px; display: flex;">
-                        <input class="N2-input" oninput="calcularMedia()" placeholder="0.0" type="number">
-                    </div>
-                    <div class="add" onclick="addSpace(2)">+</div>
-                    <div class="remove" onclick="removeSpace(2)">-</div>
-                </div>
-                <div class="result"></div>
-            </fieldset>
-        </div>
-
-        <div class="container" style="max-width: 300px;">
-            Este é um site simples onde você poderá calcular sua média final a partir das suas notas em cada etapa. <br> <br>
-            Você não precisará de calculadora, apenas inserir suas notas referentes a cada etapa como mostrado acima. <br> <br>
+    <div class="container">
+        Este é um site simples onde você poderá calcular sua média final a partir das suas notas em cada etapa. <br>
+        <br>
+        Você não precisará de calculadora, apenas inserir suas notas referentes a cada etapa como mostrado acima. <br>
+        <br>
+        Em caso de dúvidas, leia o manual. <br><br>
+        <div class="button" id="exibir" onclick="exibirEsconderManual()">Exibir manual</div>
+        <div id="manual" style="display: none;">
             <b>Manual de uso:</b> <br>
             <div style="display: flex; flex-direction: column; gap: 5px; margin-bottom: 5px;">
-                <div style="display: flex; align-items: center; gap: 5px; margin-top: 5px;"><div class="add">+</div>> Adicionar campo de nota</div>
-                <div style="display: flex; align-items: center; gap: 5px;"><div class="remove">-</div>> Remover campo de nota</div>
+                <div style="display: flex; align-items: center; gap: 5px; margin-top: 5px;">
+                    <div class="add">+</div>> Adicionar campo de nota
+                </div>
+                <div style="display: flex; align-items: center; gap: 5px;">
+                    <div class="remove">-</div>> Remover campo de nota
+                </div>
             </div>
             <br>
             1. Se o(a) professor(a) atribuir apenas uma nota como média final da etapa, digite apenas ela; <br>
-                > Exemplo: se a sua média da etapa é apenas uma nota, a maior de duas notas ou a soma de duas ou mais notas;<br> <br>
-            2. Adicione todas as suas notas ou médias atuais antes de tirar conclusões; <br> <br>    
-            3. Para saber quanto você precisa para passar, basta adicionar notas na etapa desejada até sua média atingir 6, no caso do médio, ou 7, no caso do superior;<br> <br>
-            4. O sistema mostra automaticamente quanto você precisaria na AF para passar, isso <b>não significa que você precisará fazê-la</b>, pode ser que com suas notas seguintes, você consiga atingir a média; <br> <br>
-            5. Cuidado: ao adicionar um novo campo, sua média será calculada como se aquela nota fosse 0, <b>evite adicionar campos desnecessários</b>; <br> <br>
-            6. O sistema <b>não arredonda notas</b>, se faltar alguns décimos para passar, converse com seu(sua) professor(a) ou verifique o Q-Acadêmico para entender melhor sua situação; <br> <br>
-            7. <b>ATENÇÃO:</b> O sistema assume que todas as notas digitadas têm peso 1, se um professor colocou notas com pesos diferentes em uma etapa, o sistema não calculará corretamente. Neste caso, use apenas a média da etapa. <br> <br>
-            <div style="text-align: center;">Luís Fernando (2º Ano de Redes)</div>
+            > Exemplo: se a sua média da etapa é apenas uma nota, a maior de duas notas ou a soma de duas ou mais
+            notas;<br> <br>
+            2. Adicione todas as suas notas ou médias atuais antes de tirar conclusões; <br> <br>
+            3. Para saber quanto você precisa para passar, basta adicionar notas na etapa desejada até sua média atingir
+            6, no caso do médio, ou 7, no caso do superior;<br> <br>
+            4. O sistema mostra automaticamente quanto você precisaria na AF para passar, isso <b>não significa que você
+                precisará fazê-la</b>, pode ser que com suas notas seguintes, você consiga atingir a média; <br> <br>
+            5. Cuidado: ao adicionar um novo campo, sua média será calculada como se aquela nota fosse 0, <b>evite
+                adicionar campos desnecessários</b>; <br> <br>
+            6. O sistema <b>não arredonda notas</b>, se faltar alguns décimos para passar, converse com seu(sua)
+            professor(a) ou verifique o Q-Acadêmico para entender melhor sua situação; <br> <br>
+            7. <b>ATENÇÃO:</b> O sistema assume que todas as notas digitadas têm peso 1, se um professor colocou notas
+            com pesos diferentes em uma etapa, o sistema não calculará corretamente. Neste caso, use apenas a média da
+            etapa.
         </div>
+    </div>
 
-        <script src="script.js"></script>
-    </body>
+    <div class="container" style="text-align: center;">
+        Sugestões? Bugs? Ainda com dúvidas? Me mande um e-mail! <br>
+        <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=luis.cavalcante62@aluno.ifce.edu.br&su=&body=&tf=1" target="_blank">Enviar Email</a> <br> <br>
+
+        
+        Luís Fernando C. Vieira (3º de Redes)
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
 </html>

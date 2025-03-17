@@ -19,8 +19,7 @@ h1 {
     background-color: burlywood;
     padding: 10px;
     border-radius: 8px;
-    min-width: 300px;
-    width: max-content;
+    width: 305px;
     margin: auto;
     box-shadow: 0px 0px 10px gray;
     margin-top: 20px;
@@ -45,8 +44,14 @@ fieldset legend {
 
 .box {
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 10px;
     gap: 8px;
+}
+
+.N1-inputs, .N2-inputs, .N3-inputs, .N4-inputs {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 input {
@@ -138,4 +143,21 @@ input[type=number] {
 
 .button.unselected {
     scale: 0.925;
+}
+
+#exibir {
+    text-align: center;
+    margin: 0 auto;
+    width: 150px;
+}
+
+#manual {
+    background-color: antiquewhite;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+a:link, a:visited {
+    color: blue;
 }
