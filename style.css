@@ -167,7 +167,7 @@ a:hover {
     cursor: pointer;
 }
 
-span {
+span#sign {
     background-color: antiquewhite;
     border-radius: 8px;
     padding: 10px;
