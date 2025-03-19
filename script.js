@@ -166,4 +166,13 @@ function exibirEsconderManual() {
     manualExibido = !manualExibido
 }
 
+function copiarEmail() {
+    const email = "luis.cavalcante62@aluno.ifce.edu.br"
+    navigator.clipboard.writeText(email).then(() => {
+        alert("E-mail copiado para a área de transferência!")
+    }).catch(err => {
+        console.error("Erro ao copiar email:", err)
+    });
+}
+
 calcularMedia()
